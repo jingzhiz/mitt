@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./mitt.js"></script>
+  <script>
+    const logKeyUp1 = () => console.log('key up 1');
+    const logKeyUp2 = () => console.log('key up 2');
+    const logKeyDown = () => console.log('key down');
+
+    const ee = mitt()
+
+    ee.on('keyUp', logKeyUp1)
+    ee.on('keyUp', logKeyUp2)
+    ee.on('keyDown', logKeyDown)
+    ee.off('keyUp', logKeyUp1)
+    ee.emit('keyUp')
+    ee.emit('keyDown')
+  </script>
+</body>
+</html>
